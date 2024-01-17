@@ -15,16 +15,13 @@
              http://www.springframework.org/schema/mvc/spring-mvc.xsd">
         
         <mvc:annotation-driven/>
-        <!-- annotation,main 패키지에 @Component가 있는 클래스를 객체화 -->
-        <context:component-scan base-package="controller"/>
-        <!--  Autowired...사용. 생략가능 -->
-        <context:annotation-config/>
-        
+             
         <bean id ="viewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="prefix" value="WEB-INF/view/"/>
         <property name="suffix" value=".jsp"/>
         </bean>
         
+        <bean class ="controller.HelloController"/>
 </beans>
 
