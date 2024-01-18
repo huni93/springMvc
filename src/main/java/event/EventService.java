@@ -40,4 +40,8 @@ public class EventService {
 		recommendList.add(eventMap.get(2L));
 		return recommendList;
 	}
+	
+	public Event getEvent(Long eventId) {
+		return eventMap.get(eventId);
+	}
 }

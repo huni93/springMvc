@@ -20,5 +20,11 @@
    <li><a href = "${pageContext.request.contextPath}/event/detail">event/detail</a></li>
 </ul>
 
+<ul>
+  <li>@RequestMapping, @PathVariable:</li>
+  <li><a href="${pageContext.request.contextPath}/member/regist">member/regist</a>:
+    GET/POST 예, RegistrationController</li>
+</ul>
+
 </body>
 </html>
