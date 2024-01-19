@@ -24,6 +24,18 @@
   <li>@RequestMapping, @PathVariable:</li>
   <li><a href="${pageContext.request.contextPath}/member/regist">member/regist</a>:
     GET/POST 예, RegistrationController</li>
+    
+    <li><a href="<%=request.getContextPath()%>/members">/members</a>:
+    @PathVariable 사용 위한 목록 출력, MemberController.members()</li>
+    <li><a href="<%=request.getContextPath()%>/members/m2">/members/m2</a>:
+    @PathVariable 예, MemberController.memberDetail()</li>
+    
+    <!-- // ----------------------추가 예정 -->
+</ul>
+
+<ul>
+   <li><a href="<%=request.getContextPath()%>/upload/form">/upload/form</a>:
+    파일 업로드 폼, UploadController</li> 
 </ul>
 
 </body>

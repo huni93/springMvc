@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ import service.MemberService;
 @RequestMapping("/member/regist")
 public class RegistrationController {
 	private static final String MEMBER_REGISTRATION_FORM = "member/registrationForm";
-	
+	@Autowired
 	MemberService memberService;
 	
 	//@RequestMapping(method=RequestMethod.GET)
