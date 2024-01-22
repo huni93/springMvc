@@ -30,12 +30,31 @@
     <li><a href="<%=request.getContextPath()%>/members/m2">/members/m2</a>:
     @PathVariable 예, MemberController.memberDetail()</li>
     
-    <!-- // ----------------------추가 예정 -->
+    <li><a href="<%=request.getContextPath()%>/members/m2/orders/1">/members/m2/orders/1</a>:
+    @PathVariable 예, MemberController.memberDetail()</li>
+    <li><a href="<%=request.getContextPath()%>/members/m2/orders/1a">/members/m2/orders/1a</a>:
+    @PathVariable 400 응답 예, MemberController.memberOrderDetail()</li>
+    
+    <li><a href="<%=request.getContextPath()%>/files/a123">/files/a123</a>:
+    @PathVariable 정규표현식, FileController.fileInfo()</li>
+    <li><a href="<%=request.getContextPath()%>/files/a1">/files/a1</a>:
+    @PathVariable 정규 표현식 404 , FileController.fileInfo()</li>
+    <li><a href="<%=request.getContextPath()%>/folders/1/2/3/files">/folders/1/2/3/files</a>:
+    @RequestMapping Ant패턴, FileController.list()</li>
+    
 </ul>
 
 <ul>
    <li><a href="<%=request.getContextPath()%>/upload/form">/upload/form</a>:
     파일 업로드 폼, UploadController</li> 
+</ul>
+
+
+<ul> 
+    <li><a href="<%=request.getContextPath()%>/acl/list">/acl/list</a>
+    :커맨드 객체 리스트 처리, AclController</li>
+    <li><a href="<%=request.getContextPath()%>/auth/login">/auth/login</a>:
+    LoginController</li> 
 </ul>
 
 </body>

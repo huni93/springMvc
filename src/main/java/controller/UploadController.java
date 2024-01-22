@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import fileupload.FileCommand;
 
 @Controller
 public class UploadController {
@@ -36,7 +39,24 @@ public class UploadController {
 		if(!multipartFile.isEmpty()) {
 			File file = new File(uploadPath,multipartFile.getOriginalFilename());
 			multipartFile.transferTo(file);
-			model.addAttribute("tilte",title);
+			model.addAttribute("title",title);
+			model.addAttribute("fileName",multipartFile.getOriginalFilename());
+			model.addAttribute("uploadPath",file.getAbsolutePath());
+			return "upload/fileUploaded";
+		}
+		return "upload/noUploadFile";
+	
+	}
+	
+	@PostMapping(value = "/upload/multipartHttpServletRequest")
+	public String uploadByMultipartHttpServletRequest(
+			MultipartHttpServletRequest multiReq, Model model) throws IOException {
+		MultipartFile multipartFile = multiReq.getFile("f");
+		
+		if(!multipartFile.isEmpty()) {
+			File file = new File(uploadPath, multipartFile.getOriginalFilename());
+			multipartFile.transferTo(file);
+			model.addAttribute("title",multiReq.getParameter("title"));
 			model.addAttribute("fileName",multipartFile.getOriginalFilename());
 			model.addAttribute("uploadPath",file.getAbsolutePath());
 			return "upload/fileUploaded";
@@ -44,4 +64,19 @@ public class UploadController {
 		return "upload/noUploadFile";
 	}
 	
+	@PostMapping(value = "/upload/commandObject")
+	public String uploadByMultipartHttpServletRequest(
+			FileCommand command, Model model) throws IOException {
+		MultipartFile multipartFile = command.getF();
+		
+		if(!multipartFile.isEmpty()) {
+			File file = new File(uploadPath, multipartFile.getOriginalFilename());
+			multipartFile.transferTo(file);
+			model.addAttribute("title",command.getTitle());
+			model.addAttribute("fileName",multipartFile.getOriginalFilename());
+			model.addAttribute("uploadPath",file.getAbsolutePath());
+			return "upload/fileUploaded";
+		}
+		return "upload/noUploadFile";
+	}
 }
