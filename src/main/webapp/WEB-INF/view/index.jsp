@@ -57,5 +57,11 @@
     LoginController</li> 
 </ul>
 
+<ul>
+   <li><a href="<%=request.getContextPath() %>/json/list">/json/list</a>: json , JsonController</li>
+   <li><a href="<%=request.getContextPath() %>/json/map">/json/map</a>: json , JsonController</li>
+   <li><a href="<%=request.getContextPath() %>/rest/list">/rest/list</a>: json , RestJsonController</li>
+   <li><a href="<%=request.getContextPath() %>/rest/map">/rest/map</a>: json , RestJsonController</li>
+   </ul>
 </body>
 </html>

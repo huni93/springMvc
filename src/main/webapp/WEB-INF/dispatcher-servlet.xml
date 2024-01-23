@@ -40,5 +40,19 @@
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
         </bean>
+        
+        <mvc:interceptors>
+          <mvc:interceptor>
+          <mvc:mapping path="/acl/**"/>
+          <bean class ="service.AdminInterceptor"/>
+          </mvc:interceptor>
+          <bean class = "service.MeasuringInterceptor" /> 
+          <mvc:interceptor>
+           <mvc:mapping path="/members/m2"/>
+           <mvc:mapping path="/files/**"/>
+           <ref bean = "login"/>
+          </mvc:interceptor>
+        </mvc:interceptors>
+        <bean id ="login" class ="service.LoginInterceptor"/>
 </beans>
 

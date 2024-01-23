@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import org.springframework.stereotype.Service;
 
 import ac.AccessPerm;
+import ac.AclModRequest;
 
 @Service
 public class AclService{
@@ -36,6 +37,14 @@ public class AclService{
 	}
 	public Collection<AccessPerm> getAclList() {
 		return map.values();
+	}
+	
+	public void modifyAccessControll(AclModRequest modReq) {
+		for(AccessPerm perm : modReq.getPerms()) {
+			AccessPerm ap = map.get(perm.getId());
+			if(ap != null)
+				ap.copyFrom(perm);
+		}
 	}
 	}
 

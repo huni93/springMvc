@@ -31,7 +31,7 @@ public class AclController {
 				perms.add(reqPerm);
 		modReq.setPerms(perms);
 		
-//		aclService.modifyAccessControll(modReq);
+		aclService.modifyAccessControll(modReq);
 		return "redirect:/acl/list";
 	}
 }

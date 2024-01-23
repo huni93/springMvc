@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,13 @@ public MemberInfo getMemberInfo(String memberId) {
 
 public void registNewMember (MemberRegistRequest memRegReq) {
 		
+}
+public MemberInfo getMemberInfoByEmail(String email) {
+	for(MemberInfo mi : memberMap.values()) {
+		if(mi.getEmail().equals(email))
+			return mi;
+	}
+	return null;
 }
 
 	}
